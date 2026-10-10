@@ -495,25 +495,8 @@
   function initReveal() {
     var sections = document.querySelectorAll(".section");
     if (!sections.length) return;
-
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-      sections.forEach(function (s) { s.classList.add("in"); });
-      return;
-    }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
-
-    sections.forEach(function (section) {
-      section.classList.add("reveal");
-      observer.observe(section);
-    });
+    // Disable scroll-triggered reveals per user request; just show.
+    sections.forEach(function (s) { s.classList.add("in"); });
   }
 
   /* ------------------------------------------------------------------ *
@@ -927,7 +910,7 @@
     renderProjects();
     renderExploring();
     initNav();
-    initReveal();
+    // initReveal removed per request
     initSecretDoodle();
     initSticker();
     initCableToggle();

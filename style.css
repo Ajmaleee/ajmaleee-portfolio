@@ -50,6 +50,9 @@ body {
   overflow-x: hidden; /* fallback for browsers without `clip` */
   overflow-x: clip;
 }
+@supports not (overflow-x: clip) {
+  body { overflow-x: hidden; }
+}
 
 img, svg { max-width: 100%; }
 img { height: auto; display: block; }
@@ -766,7 +769,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- 14d. The cat & the fish bucket (easter egg) ---------- */
 .cat {
-  position: fixed;
+  position: absolute;
   left: 0; top: 0;
   width: clamp(46px, 7vw, 66px);
   height: auto;
@@ -778,6 +781,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   will-change: transform;
   filter: drop-shadow(0 3px 2px rgba(37, 36, 31, .22));
   -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
 }
 .cat svg { display: block; width: 100%; height: auto; overflow: visible; }
 .cat-inner { display: block; transform-origin: 50% 60%; }
@@ -807,7 +811,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .cat-bubble.show { transform: translateX(-50%) scale(1); }
 
-.fish { position: fixed; z-index: 44; width: 34px; pointer-events: none; }
+.fish { position: absolute; z-index: 44; width: 34px; pointer-events: none; }
 .fish svg { width: 100%; height: auto; display: block; }
 .fish.dragging { width: 44px; z-index: 60; opacity: .92; }
 .fish.placed { animation: fishbob 2.6s ease-in-out infinite; }
@@ -874,9 +878,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- 15. Motion ---------- */
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s cubic-bezier(.22, .61, .36, 1);
+  opacity: 1;
+  transform: none;
 }
 .reveal.in { opacity: 1; transform: none; }
 
