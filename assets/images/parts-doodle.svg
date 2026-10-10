@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" fill="none" stroke="#25241F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Doodle of loose electronic parts: a resistor, a capacitor, an LED, and a microchip">
+  <!-- resistor -->
+  <g transform="rotate(-6 40 34)">
+    <path d="M6 34h14"/>
+    <path d="M20 24h26a10 10 0 0 1 0 20H20a10 10 0 0 1 0-20Z" fill="#E5C56C"/>
+    <path d="M46 34h14"/>
+    <path d="M28 24v20M36 24v20" stroke="#D64D35"/>
+  </g>
+  <!-- capacitor -->
+  <g transform="rotate(5 150 30)">
+    <path d="M138 16v16M138 44v16"/>
+    <ellipse cx="138" cy="30" rx="14" ry="13" fill="#75916A" fill-opacity="0.35"/>
+    <path d="M128 22c6 4 14 4 20 0" stroke="#25241F"/>
+  </g>
+  <!-- LED -->
+  <g transform="rotate(8 210 76)">
+    <path d="M198 88v-14M214 88v-14"/>
+    <circle cx="206" cy="62" r="13" fill="#D64D35" fill-opacity="0.75"/>
+    <path d="M200 52l6 6M212 50l-4 8" stroke="#F3EEDF"/>
+    <path d="M200 74l-8 14M212 74l8 14"/>
+  </g>
+  <!-- microchip -->
+  <g transform="rotate(-4 90 84)">
+    <rect x="60" y="62" width="60" height="42" rx="4" fill="#E8E1D3"/>
+    <circle cx="68" cy="70" r="3.4" fill="#25241F"/>
+    <path d="M60 72H48M60 84H48M60 96H48M120 72h12M120 84h12M120 96h12M72 62V50M84 62V50M96 62V50M108 62V50"/>
+    <path d="M74 78h32M74 88h20" stroke="#6E695E"/>
+  </g>
+  <path d="M18 104c40 8 150 8 210-2" stroke="#6E695E" stroke-dasharray="2 8"/>
+</svg>

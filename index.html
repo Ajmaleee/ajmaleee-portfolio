@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F3EEDF" />
+
+  <title>Ajmal's Internet Corner — projects, electronics &amp; mild chaos</title>
+  <meta name="description" content="The handmade internet corner of Ajmal: a 17-year-old web developer and electronics enthusiast. Project scraps, workshop notes, fiddly sensors, and wiring that mostly works." />
+  <meta name="author" content="Ajmal" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Social sharing. Replace the og:url / og:image with real values once the domain is live. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ajmal's Internet Corner" />
+  <meta property="og:description" content="Projects, electronics experiments, and questionable amounts of curiosity." />
+  <meta property="og:site_name" content="Ajmal's Internet Corner" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ajmal's Internet Corner" />
+  <meta name="twitter:description" content="Projects, electronics experiments, and questionable amounts of curiosity." />
+  <!-- TODO: add <link rel="canonical" href="https://YOUR-DOMAIN/"> and og:image once the final domain is known. -->
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Kalam:wght@300;400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ajmal",
+    "description": "17-year-old web developer and electronics enthusiast.",
+    "sameAs": [
+      "https://github.com/Ajmaleee",
+      "https://www.instagram.com/ajmaleee__/"
+    ]
+  }
+  </script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="Ajmal's Internet Corner — back to the top">
+        <span class="logo-tape" aria-hidden="true"></span>
+        <span class="logo-text">AJMAL'S<br />INTERNET CORNER</span>
+      </a>
+
+      <p class="status mono" aria-label="Site status">
+        <span class="status-dot" aria-hidden="true"></span>
+        status: probably compiling
+      </p>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open navigation menu"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-text">menu</span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main">
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#workshop">Workshop</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+
+        <div class="hero-copy">
+          <p class="eyebrow mono">a scrapbook, but online</p>
+
+          <h1 id="hero-title" class="hand">Hi, I'm <span class="scribble">Ajmal</span>.</h1>
+
+          <p class="hero-lead">
+            I build things on the internet and occasionally convince microcontrollers to cooperate.
+          </p>
+          <p class="hero-sub">
+            17-year-old developer, electronics enthusiast, serial experiment starter, and part-time
+            investigator of why the code worked yesterday.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a
+              class="btn btn-ghost"
+              href="https://github.com/Ajmaleee"
+              target="_blank"
+              rel="noopener"
+            >Visit my GitHub <span aria-hidden="true">&#8599;</span></a>
+          </div>
+
+          <div class="hero-notes">
+            <p class="annotation rotate-l">Yes, this is the homepage. We made it.</p>
+            <p class="annotation rotate-r">Built with questionable amounts of curiosity.</p>
+            <img class="inline-doodle rotate-arrow" src="assets/doodles/arrow.svg" alt="" width="46" height="46" aria-hidden="true" />
+          </div>
+
+          <p class="hero-sticker">
+            <button
+              class="sticker"
+              type="button"
+              id="sticker"
+              aria-describedby="sticker-msg"
+            >
+              <span id="sticker-label" class="hand">press for wisdom</span>
+            </button>
+            <span id="sticker-msg" class="sr-only" role="status" aria-live="polite"></span>
+          </p>
+
+          <p class="hero-secret">
+            <button
+              class="doodle-btn"
+              type="button"
+              id="secret-doodle"
+              aria-expanded="false"
+              aria-controls="secret-note"
+              aria-label="A small doodle. Press it and see what happens."
+            >
+              <img src="assets/doodles/star.svg" alt="" width="26" height="26" />
+              <span class="doodle-hint hand">psst — press me</span>
+            </button>
+            <span id="secret-note" class="secret-note hand" hidden>
+              You found the secret note. It says: "have you tried turning it off and on again?"
+              Also, you have excellent taste in clicking things.
+            </span>
+          </p>
+        </div>
+
+        <figure class="hero-figure">
+          <span class="tape tape--top" aria-hidden="true"></span>
+
+          <!-- Original hand-drawn scene. The cables are interactive (see cable toggle). -->
+          <svg
+            class="hero-art"
+            id="hero-art"
+            viewBox="0 0 520 340"
+            role="img"
+            aria-labelledby="heroArtTitle heroArtDesc"
+          >
+            <title id="heroArtTitle">A doodle of my desk</title>
+            <desc id="heroArtDesc">Hand-drawn illustration: a monitor running code, a breadboard with tangled jumper wires, an Arduino board, a coffee mug, and sticky notes.</desc>
+
+            <!-- wall poster -->
+            <g transform="rotate(-3 80 60)">
+              <rect x="42" y="30" width="70" height="54" rx="3" fill="#E8E1D3" stroke="#25241F" stroke-width="2.4"/>
+              <path d="M54 46h46M54 56h34M54 66h40" stroke="#6E695E" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M64 20l-40 6" stroke="#E5C56C" stroke-width="9" stroke-linecap="round" opacity="0.85"/>
+            </g>
+
+            <!-- monitor -->
+            <g>
+              <rect x="140" y="58" width="230" height="150" rx="10" fill="#E8E1D3" stroke="#25241F" stroke-width="3"/>
+              <rect x="154" y="72" width="202" height="122" rx="6" fill="#F3EEDF" stroke="#25241F" stroke-width="2.2"/>
+              <path d="M168 90h60M168 104h96M168 118h74M168 132h88M168 146h50" stroke="#75916A" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="176" cy="170" r="4" fill="#25241F"/>
+              <circle cx="192" cy="170" r="4" fill="#25241F"/>
+              <path d="M172 180c8 7 18 7 26 0" stroke="#D64D35" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+              <path d="M255 208l-8 26h46l-8-26" fill="#E8E1D3" stroke="#25241F" stroke-width="2.6" stroke-linejoin="round"/>
+              <path d="M236 236h68" stroke="#25241F" stroke-width="3" stroke-linecap="round"/>
+              <!-- sticky notes -->
+              <rect x="150" y="42" width="34" height="30" fill="#E5C56C" stroke="#25241F" stroke-width="1.8" transform="rotate(-8 167 57)"/>
+              <rect x="332" y="46" width="30" height="28" fill="#D64D35" opacity="0.85" stroke="#25241F" stroke-width="1.8" transform="rotate(9 347 60)"/>
+            </g>
+
+            <!-- desk -->
+            <path d="M20 270c150 10 340 10 480-4" stroke="#25241F" stroke-width="3.4" stroke-linecap="round"/>
+
+            <!-- breadboard -->
+            <g>
+              <rect x="34" y="238" width="150" height="42" rx="6" fill="#E8E1D3" stroke="#25241F" stroke-width="2.6"/>
+              <g fill="#6E695E">
+                <circle cx="54" cy="252" r="2"/><circle cx="72" cy="252" r="2"/><circle cx="90" cy="252" r="2"/>
+                <circle cx="108" cy="252" r="2"/><circle cx="126" cy="252" r="2"/><circle cx="144" cy="252" r="2"/>
+                <circle cx="54" cy="266" r="2"/><circle cx="72" cy="266" r="2"/><circle cx="90" cy="266" r="2"/>
+                <circle cx="108" cy="266" r="2"/><circle cx="126" cy="266" r="2"/><circle cx="144" cy="266" r="2"/>
+              </g>
+            </g>
+
+            <!-- Arduino board -->
+            <g>
+              <rect x="356" y="228" width="120" height="56" rx="5" fill="#75916A" fill-opacity="0.5" stroke="#25241F" stroke-width="2.6"/>
+              <path d="M372 240h56M372 252h40" stroke="#25241F" stroke-width="2.2" stroke-linecap="round"/>
+              <g stroke="#25241F" stroke-width="2">
+                <path d="M366 228v-8M382 228v-8M398 228v-8M414 228v-8M430 228v-8M446 228v-8M462 228v-8"/>
+              </g>
+              <circle cx="466" cy="272" r="4" fill="#D64D35"/>
+            </g>
+
+            <!-- coffee mug -->
+            <g>
+              <rect x="300" y="236" width="42" height="34" rx="6" fill="#D64D35" fill-opacity="0.85" stroke="#25241F" stroke-width="2.4"/>
+              <path d="M342 246c12 0 12 16 0 16" fill="none" stroke="#25241F" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M312 226c-4-6 4-8 0-14M326 226c-4-6 4-8 0-14" stroke="#6E695E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- MESSY cables (default) -->
+            <g class="cable cable--messy" fill="none" stroke="#25241F" stroke-width="2.6" stroke-linecap="round">
+              <path d="M150 250c40 6 30 30 70 26s70-40 100-20 6 46 30 48"/>
+              <path d="M150 262c50 26 120-4 160 18s40 6 60 4"/>
+              <path d="M180 260c-30 20-90 26-120 8" stroke="#D64D35"/>
+            </g>
+
+            <!-- TIDY cables (hidden until toggled) -->
+            <g class="cable cable--tidy" fill="none" stroke="#25241F" stroke-width="2.6" stroke-linecap="round">
+              <path d="M150 250c50 0 60 22 110 22"/>
+              <path d="M150 262c50 0 70 10 110 10"/>
+              <path d="M180 260c-20 0-40 6-80 6" stroke="#D64D35"/>
+            </g>
+
+            <!-- tiny robot -->
+            <g transform="rotate(4 470 300)">
+              <rect x="452" y="286" width="40" height="30" rx="6" fill="#E5C56C" stroke="#25241F" stroke-width="2.4"/>
+              <circle cx="464" cy="298" r="3.4" fill="#25241F"/>
+              <circle cx="480" cy="298" r="3.4" fill="#25241F"/>
+              <path d="M464 308h16" stroke="#25241F" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M472 286v-10" stroke="#25241F" stroke-width="2.2"/>
+              <circle cx="472" cy="272" r="4" fill="#D64D35" stroke="#25241F" stroke-width="2"/>
+            </g>
+          </svg>
+
+          <button
+            class="cable-toggle btn btn-sticker"
+            type="button"
+            id="cable-toggle"
+            aria-pressed="false"
+          >
+            Tidy the cables (attempt)
+          </button>
+
+          <figcaption class="hero-caption hand">
+            the current state of the desk — <span class="nowrap">cables under active investigation</span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <div class="wrap divider" role="presentation">
+      <img src="assets/doodles/squiggle.svg" alt="" width="120" height="16" />
+    </div>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow mono">section c</p>
+          <h2 id="projects-title" class="hand">Project scraps <img class="inline-doodle" src="assets/doodles/sparkle.svg" alt="" width="34" height="34" aria-hidden="true" /></h2>
+          <p class="section-intro">
+            A pile of things I've built, started, or started-then-restarted. Each one is a scrap of
+            paper in the collage below. Links go to real pages only — no imaginary demos.
+          </p>
+          <p class="annotation annotation--inline">
+            Current bug count: <em>classified information.</em>
+          </p>
+        </header>
+
+        <!-- Projects are rendered by script.js from the PROJECTS data structure. -->
+        <div class="collage" id="projects-grid"></div>
+
+        <noscript>
+          <div class="noscript-fallback">
+            <p class="hand">JavaScript is off. Here's a compact list:</p>
+            <ul>
+              <li><strong>CircuitShelf Hardware</strong> — <a href="https://github.com/Ajmaleee/CircuitShelf-Hardware">Source</a></li>
+              <li><strong>TechBlog</strong> — <a href="https://ajmaleeeblog.pages.dev/blog/">Live</a> · <a href="https://github.com/Ajmaleee/TechBlog">Source</a></li>
+              <li><strong>Speak-Easy</strong> — <a href="https://speakeasyv1.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/Speak-Easy">Source</a></li>
+              <li><strong>Meditrace</strong> — <a href="https://meditracev3.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/Meditrace">Source</a></li>
+              <li><strong>Jot-ToDO</strong> — <a href="https://jot-todo.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/Jot-ToDO">Source</a></li>
+              <li><strong>CircuitShelf</strong> — <a href="https://circuitshelf.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/CircuitShelf">Source</a></li>
+              <li><strong>Bench-Stock</strong> — <a href="https://bench-stock.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/Bench-Stock">Source</a></li>
+              <li><strong>Luna Cycle</strong> — <a href="https://lunacyclev1.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/Luna-Cycle">Source</a></li>
+              <li><strong>SignBridge v3</strong> — <a href="https://signbridgev3.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/SignBridgev3">Source</a></li>
+              <li><strong>PsuedoForge</strong> — <a href="https://psuedoforge.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/PsuedoForge">Source</a></li>
+              <li><strong>MeowOS</strong> — <a href="https://ajmaleee.github.io/MeowOS/">Live</a> · <a href="https://github.com/Ajmaleee/MeowOS">Source</a></li>
+              <li><strong>Personal Site</strong> — <a href="https://cardboardpersonalsite.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/personal-site">Source</a></li>
+              <li><strong>Mallu Dhaba</strong> — <a href="https://mallu-dhaba.vercel.app/">Live</a> · <a href="https://github.com/Ajmaleee/mallu-dhaba-">Source</a></li>
+              <li><strong>MeowOS v2</strong> — <a href="https://ajmaleee.github.io/MeowOS-v2/">Live</a> · <a href="https://github.com/Ajmaleee/MeowOS-v2">Source</a></li>
+              <li><strong>OhmLab</strong> — <a href="https://ohmlab.pages.dev/">Live</a> · <a href="https://github.com/Ajmaleee/OhmLab">Source</a></li>
+              <li><strong>Orbit New Tab</strong> — <a href="https://ajmaleee.github.io/Orbit-New-Tab/">Live</a> · <a href="https://github.com/Ajmaleee/Orbit-New-Tab">Source</a></li>
+              <li><strong>Flames Reveal</strong> — <a href="https://ajmaleee.github.io/Flames-reveal/">Live</a> · <a href="https://github.com/Ajmaleee/Flames-reveal">Source</a></li>
+            </ul>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <div class="wrap divider" role="presentation">
+      <img src="assets/doodles/squiggle.svg" alt="" width="120" height="16" />
+    </div>
+
+    <!-- ============ WORKSHOP ============ -->
+    <section class="section workshop" id="workshop" aria-labelledby="workshop-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow mono">section d</p>
+          <h2 id="workshop-title" class="hand">The workshop <img class="inline-doodle" src="assets/doodles/sparkle.svg" alt="" width="30" height="30" aria-hidden="true" /></h2>
+          <p class="section-intro">
+            A maker's notebook of the tools and topics I keep poking at. None of these are finished —
+            that would rob me of my favourite hobby: starting something else.
+          </p>
+        </header>
+
+        <div class="workshop-board">
+          <img class="workshop-parts" src="assets/images/parts-doodle.svg" alt="" width="240" height="120" />
+
+          <ul class="workshop-list">
+            <li class="workshop-note" data-paper="a">
+              <h3 class="hand">Arduino experiments</h3>
+              <p>Where every project begins: one blinking LED and unreasonable confidence.</p>
+              <span class="note-tag mono">boards: several</span>
+            </li>
+            <li class="workshop-note" data-paper="b">
+              <h3 class="hand">ESP32 builds</h3>
+              <p>Wi-Fi-enabled chaos. Now my projects can fail remotely.</p>
+              <span class="note-tag mono">radio: yes</span>
+            </li>
+            <li class="workshop-note" data-paper="c">
+              <h3 class="hand">Sensor projects</h3>
+              <p>Teaching machines to feel things. Currently they feel confused.</p>
+              <span class="note-tag mono">readings: noisy</span>
+            </li>
+            <li class="workshop-note" data-paper="a">
+              <h3 class="hand">Robotics &amp; servos</h3>
+              <p>In theory: smooth motion. In practice: ominous buzzing.</p>
+              <span class="note-tag mono">axis: 1, maybe</span>
+            </li>
+            <li class="workshop-note" data-paper="c">
+              <h3 class="hand">3D printing</h3>
+              <p>Turning perfect digital ideas into slightly warped physical ones.</p>
+              <span class="note-tag mono">supports: grudgingly</span>
+            </li>
+            <li class="workshop-note" data-paper="b">
+              <h3 class="hand">Hardware prototypes</h3>
+              <p>Breadboard phase — the stage where cables go to multiply.</p>
+              <span class="note-tag mono">dupont: many</span>
+            </li>
+            <li class="workshop-note" data-paper="c">
+              <h3 class="hand">Programming experiments</h3>
+              <p>Tiny scripts that solve problems I definitely had, plus several I probably invented.</p>
+              <span class="note-tag mono">commits: chaotic</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="annotation annotation--wide rotate-r">
+          This looked easier in my head. TODO: become less ambitious. <em>Rejected.</em>
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap divider" role="presentation">
+      <img src="assets/doodles/squiggle.svg" alt="" width="120" height="16" />
+    </div>
+
+    <!-- ============ CURRENTLY EXPLORING ============ -->
+    <section class="section exploring" id="exploring" aria-labelledby="exploring-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow mono">section e</p>
+          <h2 id="exploring-title" class="hand">Currently exploring</h2>
+          <p class="section-intro">
+            Scraps I move around on the corkboard. They change whenever my attention span does.
+            <span class="mono tiny">editable in script.js</span>
+          </p>
+        </header>
+
+        <!-- Rendered by script.js from the EXPLORING data structure. -->
+        <ul class="pinboard" id="exploring-board"></ul>
+
+        <noscript>
+          <p class="hand">Turn JavaScript back on to see my current scraps — or just assume I'm debugging something.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <div class="wrap divider" role="presentation">
+      <img src="assets/doodles/squiggle.svg" alt="" width="120" height="16" />
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <p class="eyebrow mono">section f</p>
+          <h2 id="about-title" class="hand">About me, sort of</h2>
+
+          <p>
+            I like building things, figuring out how they work, and occasionally discovering that the
+            problem was one missing semicolon. Or a wire. Or my entire approach.
+          </p>
+          <p>
+            Most days that means writing code for the web on one side of the desk and nudging physical
+            electronics into behaving on the other. The two hobbies argue a lot, but they've produced
+            some genuinely useful (and some gloriously pointless) things.
+          </p>
+          <p>
+            I'm 17. I learn by breaking stuff, reading a lot, and pretending the smoke was planned.
+            This corner of the internet is where all of that ends up — half-finished, mostly
+            enthusiastic, and occasionally on fire in a metaphorical sense.
+          </p>
+
+          <p class="annotation">Made by a human. Bugs included.</p>
+        </div>
+
+        <aside class="about-card" aria-label="Quick facts">
+          <span class="tape tape--corner" aria-hidden="true"></span>
+          <h3 class="hand">quick facts</h3>
+          <dl>
+            <div><dt class="mono">age</dt><dd>17</dd></div>
+            <div><dt class="mono">languages</dt><dd>web + embedded tinkering</dd></div>
+            <div><dt class="mono">desk</dt><dd>permanently occupied by wires</dd></div>
+            <div><dt class="mono">power source</dt><dd>curiosity &amp; tea</dd></div>
+            <div><dt class="mono">status</dt><dd>learning something</dd></div>
+          </dl>
+          <p class="about-card-note hand">no corporate buzzwords were used in the making of this page.</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap divider" role="presentation">
+      <img src="assets/doodles/squiggle.svg" alt="" width="120" height="16" />
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-note">
+          <span class="tape tape--top" aria-hidden="true"></span>
+          <p class="eyebrow mono">section g</p>
+          <h2 id="contact-title" class="hand">Say hello</h2>
+          <p>
+            Want to talk about a project, an idea, or why something that should work simply refuses
+            to? The inboxes below are real.
+          </p>
+
+          <ul class="contact-links">
+            <li>
+              <a class="contact-link" href="https://github.com/Ajmaleee" target="_blank" rel="noopener">
+                <span class="contact-link-label hand">GitHub</span>
+                <span class="mono contact-link-url">github.com/Ajmaleee</span>
+                <span class="contact-link-arrow" aria-hidden="true">&#8599;</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://www.instagram.com/ajmaleee__/" target="_blank" rel="noopener">
+                <span class="contact-link-label hand">Instagram</span>
+                <span class="mono contact-link-url">@ajmaleee__</span>
+                <span class="contact-link-arrow" aria-hidden="true">&#8599;</span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="contact-riddle hand">Prefer pigeons? Me too, but the range is disappointing.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-line hand">
+        You have reached the bottom of the internet. Please stretch.
+      </p>
+      <p class="footer-meta mono">
+        Handmade with HTML, CSS &amp; vanilla JS. No frameworks were harmed.
+      </p>
+      <p class="footer-top">
+        <a href="#top">back to the top &#8593;</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
