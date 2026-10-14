@@ -3,8 +3,9 @@
    Vanilla JS. No frameworks, no build step.
    --------------------------------------------------------------------------
    To edit the site: change PROJECTS or EXPLORING below. Project URLs live here
-   so they're easy to update in one place. VISUALS holds the little per-project
-   doodles. The bottom of the file is the roaming-cat easter egg.
+   so they're easy to update in one place. CUTOUTS maps each project to a
+   taped-on illustration in assets/parts/ (swap in your own photos any time).
+   The bottom of the file is the roaming-cat easter egg.
    ========================================================================== */
 
 (function () {
@@ -124,7 +125,8 @@
       tags: ["Accessibility", "Sign language", "Web"],
       github: "https://github.com/Ajmaleee/SignBridge",
       demo: "https://signbridgev2.pages.dev/",
-      visual: "sign"
+      visual: "sign",
+      cutout: "assets/parts/servo.svg"
     },
     {
       name: "Gym Photo Tracker",
@@ -305,42 +307,40 @@
   ];
 
   /* ------------------------------------------------------------------ *
-   * 2. VISUALS — one little doodle per project (keyed by `visual`)
+   * 2. CUTOUTS — taped-on part illustrations per project (keyed by `visual`).
+   *    Put your own photos in assets/photos/ and point entries at them.
    * ------------------------------------------------------------------ */
-  var S = '<svg viewBox="0 0 120 80" class="pv" fill="none" stroke="#25241F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
-  function wrap(inner) { return S + inner + "</svg>"; }
-
-  var VISUALS = {
-    inventory: wrap('<rect x="22" y="34" width="76" height="36" rx="5" fill="#E8E1D3"/><path d="M22 46h76" stroke="#6E695E"/><path d="M50 34v12" stroke="#6E695E"/><rect x="34" y="12" width="34" height="22" rx="3" fill="#75916A" fill-opacity=".45"/><path d="M42 12V6M52 12V6M62 12V6M42 34v-6M52 34v-6M62 34v-6"/><circle cx="82" cy="58" r="6" fill="#D64D35" fill-opacity=".8"/>'),
-    blog: wrap('<rect x="24" y="14" width="62" height="54" rx="4" fill="#E8E1D3"/><path d="M24 22h62M40 14v54" stroke="#6E695E"/><path d="M50 32h26M50 42h20M50 52h24" stroke="#6E695E"/><path d="M92 20l10 10-9 9-10-10z" fill="#E5C56C"/><path d="M83 51l-12 7 2-14z" fill="#D64D35"/>'),
-    portfolio: wrap('<rect x="16" y="16" width="88" height="50" rx="5" fill="#E8E1D3"/><path d="M16 28h88"/><circle cx="26" cy="22" r="2.4" fill="#D64D35"/><circle cx="34" cy="22" r="2.4" fill="#E5C56C"/><circle cx="42" cy="22" r="2.4" fill="#75916A"/><path d="M28 40h34M28 50h24" stroke="#6E695E"/><path d="M78 38h16v16H78z" fill="#E5C56C"/><path d="M78 38l8-5 8 5"/>'),
-    alarm: wrap('<circle cx="60" cy="44" r="24" fill="#E5C56C" fill-opacity=".5"/><circle cx="60" cy="44" r="24"/><path d="M60 30v14l10 6"/><path d="M40 22l-8-8M80 22l8-8"/><path d="M34 56l-6 6M86 56l6 6"/><path d="M60 12v-6M46 14l-3-6M74 14l3-6" stroke="#D64D35"/>'),
-    speech: wrap('<path d="M20 24h64a8 8 0 0 1 8 8v18a8 8 0 0 1-8 8H52l-14 12 2-12H20a8 8 0 0 1-8-8V32a8 8 0 0 1 8-8Z" fill="#E8E1D3"/><path d="M38 42h30M38 50h20" stroke="#6E695E"/><circle cx="86" cy="22" r="6" fill="#D64D35" fill-opacity=".7"/>'),
-    medicine: wrap('<rect x="28" y="30" width="48" height="24" rx="12" fill="#E8E1D3" transform="rotate(-18 52 42)"/><path d="M52 30v24" stroke="#6E695E" transform="rotate(-18 52 42)"/><rect x="52" y="30" width="24" height="24" rx="12" fill="#D64D35" fill-opacity=".55" transform="rotate(-18 52 42)"/><circle cx="90" cy="52" r="13" fill="#E5C56C" fill-opacity=".5"/><path d="M90 44v8l6 4"/>'),
-    todo: wrap('<rect x="26" y="14" width="68" height="54" rx="4" fill="#E8E1D3"/><rect x="36" y="26" width="12" height="12" rx="2"/><path d="M38 32l4 4 6-8" stroke="#75916A" stroke-width="3"/><path d="M56 32h28" stroke="#6E695E"/><rect x="36" y="46" width="12" height="12" rx="2"/><path d="M56 52h22" stroke="#6E695E"/>'),
-    bench: wrap('<path d="M18 30h84M18 58h84"/><rect x="26" y="40" width="18" height="18" rx="3" fill="#75916A" fill-opacity=".4"/><path d="M58 58V40l10-10"/><path d="M58 44l-8-8"/><circle cx="86" cy="49" r="9" fill="#E5C56C"/><path d="M86 40v-6"/>'),
-    moon: wrap('<path d="M70 14a28 28 0 1 0 0 52 22 22 0 1 1 0-52Z" fill="#E5C56C" fill-opacity=".5"/><circle cx="46" cy="32" r="2.6" fill="#25241F"/><circle cx="40" cy="46" r="2" fill="#25241F"/><circle cx="52" cy="54" r="2.2" fill="#25241F"/><path d="M92 28l3 6 6 1-4 5 1 6-6-3-6 3 1-6-4-5 6-1z" fill="#D64D35" fill-opacity=".65"/>'),
-    sign: wrap('<path d="M44 62V42a4 4 0 0 1 8 0v6"/><path d="M52 46a4 4 0 0 1 8 0v4"/><path d="M60 48a4 4 0 0 1 8 0v8c0 8-6 12-15 12h-5c-6 0-10-4-10-10v-4"/><path d="M84 28c6 5 6 15 0 20M92 22c11 9 11 26 0 34" stroke="#D64D35"/>'),
-    gym: wrap('<path d="M18 40h12M90 40h12" stroke-width="6"/><rect x="34" y="30" width="9" height="20" rx="2" fill="#25241F"/><rect x="77" y="30" width="9" height="20" rx="2" fill="#25241F"/><rect x="43" y="36" width="34" height="8" rx="4" fill="#75916A"/><rect x="44" y="56" width="50" height="14" rx="3" fill="#E8E1D3"/><circle cx="78" cy="63" r="4"/><path d="M50 56l5-6h-8z" fill="#D64D35"/>'),
-    python: wrap('<path d="M32 58c0-10 10-10 22-10s22 0 22-8-10-8-22-8-22 0-22-8 10-8 22-8 26 2 26 10" fill="none"/><circle cx="80" cy="16" r="4" fill="#25241F"/><circle cx="32" cy="58" r="4" fill="#D64D35"/><path d="M40 30h8M40 34h8" stroke="#6E695E"/>'),
-    pseudocode: wrap('<rect x="42" y="8" width="36" height="15" rx="4" fill="#E8E1D3"/><path d="M60 23v8"/><path d="M60 31l-17 15h34z" fill="#E5C56C" fill-opacity=".5"/><path d="M60 46v9"/><rect x="42" y="55" width="36" height="15" rx="4" fill="#E8E1D3"/><path d="M60 38h6"/><circle cx="60" cy="38" r="0"/>'),
-    morse: wrap('<path d="M24 62h72"/><circle cx="34" cy="58" r="6" fill="#D64D35"/><path d="M34 52V42l22-5"/><circle cx="58" cy="35" r="4" fill="#25241F"/><path d="M72 28h8M84 28h8M72 38h14M72 48h7M83 48h9"/><path d="M46 62V54" stroke="#6E695E"/>'),
-    os: wrap('<rect x="14" y="16" width="92" height="52" rx="5" fill="#E8E1D3"/><path d="M14 28h92"/><path d="M24 28v40M50 28v40" stroke="#6E695E" stroke-dasharray="3 4"/><path d="M28 40h16M28 48h12M56 40h28M56 48h20" stroke="#6E695E"/><path d="M84 54c-6 0-6-8 0-8h3v-4l4 4 4-4v4h3c6 0 6 8 0 8z" fill="#E5C56C"/>'),
-    os2: wrap('<rect x="14" y="16" width="92" height="52" rx="5" fill="#E8E1D3"/><path d="M14 28h92"/><circle cx="24" cy="22" r="2.4" fill="#D64D35"/><circle cx="32" cy="22" r="2.4" fill="#E5C56C"/><circle cx="40" cy="22" r="2.4" fill="#75916A"/><path d="M28 42h24M28 52h18" stroke="#6E695E"/><path d="M72 42l6-8 6 8v16H72z" fill="#E5C56C"/><circle cx="78" cy="50" r="1.8" fill="#25241F"/><circle cx="90" cy="50" r="1.8" fill="#25241F"/><path d="M81 58h8"/>'),
-    dashboard: wrap('<rect x="16" y="16" width="88" height="50" rx="5" fill="#E8E1D3"/><path d="M28 54l14-16 12 10 16-24 12 12" stroke="#D64D35"/><path d="M28 54h64" stroke="#6E695E"/><path d="M30 26h24" stroke="#6E695E"/><circle cx="88" cy="26" r="5" fill="#75916A"/>'),
-    mountain: wrap('<path d="M14 60l24-34 16 22 12-16 30 28z" fill="#75916A" fill-opacity=".35"/><path d="M38 26l6 8h-9z" fill="#F3EEDF"/><path d="M84 24a5 5 0 1 0 0-.1" /><circle cx="84" cy="24" r="5" fill="#D64D35"/><path d="M84 19v-6M78 30l-5-5M90 30l5-5" stroke="#6E695E"/>'),
-    chipmountain: wrap('<path d="M14 60l22-30 14 20 12-14 26 24z" fill="#75916A" fill-opacity=".3"/><rect x="44" y="30" width="30" height="20" rx="3" fill="#E8E1D3"/><path d="M52 30v-6M60 30v-6M68 30v-6M52 50v6M60 50v6M68 50v6"/><circle cx="54" cy="38" r="2" fill="#D64D35"/>'),
-    restaurant: wrap('<circle cx="60" cy="46" r="22" fill="#E8E1D3"/><circle cx="60" cy="46" r="13" fill="#E5C56C" fill-opacity=".45"/><path d="M20 28v34M20 28c-4 0-4 8 0 8" stroke="#6E695E"/><path d="M27 28v34M27 28c4 0 4 8 0 8" stroke="#6E695E"/><path d="M98 28v34M94 30c3 0 5 5 5 9" stroke="#6E695E"/>'),
-    wifi: wrap('<rect x="26" y="20" width="66" height="42" rx="6" fill="#E8E1D3"/><circle cx="42" cy="38" r="8" fill="#75916A" fill-opacity=".5"/><path d="M34 54h28M34 60h18" stroke="#6E695E"/><path d="M84 48c4-4 10-4 14 0M80 42c8-8 20-8 28 0" stroke="#D64D35"/>'),
-    ohm: wrap('<rect x="20" y="32" width="70" height="20" rx="10" fill="#E8E1D3"/><path d="M12 42h8M90 42h14M42 32v20M54 32v20" stroke="#25241F"/><circle cx="98" cy="58" r="13" fill="#E5C56C" fill-opacity=".5"/><path d="M92 58h12M98 52v12" stroke="#6E695E"/>'),
-    orbit: wrap('<circle cx="58" cy="40" r="16" fill="#75916A" fill-opacity=".45"/><ellipse cx="58" cy="40" rx="34" ry="12" transform="rotate(-20 58 40)" stroke="#D64D35"/><circle cx="92" cy="26" r="4" fill="#E5C56C"/><circle cx="24" cy="56" r="3" fill="#25241F"/>'),
-    lock: wrap('<rect x="46" y="34" width="30" height="26" rx="5" fill="#E5C56C" fill-opacity=".5"/><path d="M52 34v-6a9 9 0 0 1 18 0v6"/><circle cx="61" cy="46" r="3.5" fill="#25241F"/><path d="M61 49v6"/><path d="M88 22c6 8 2 12 0 17-2-4-7-6-7-10 0-4 4-6 7-7z" fill="#D64D35" fill-opacity=".7"/><circle cx="30" cy="58" r="6"/><path d="M36 58h14M44 58v4"/>'),
-    phishing: wrap('<path d="M20 40c10-10 26-10 36 0-10 10-26 10-36 0z" fill="#E8E1D3"/><path d="M56 40l12-8v16z" fill="#E8E1D3"/><circle cx="30" cy="38" r="2" fill="#25241F"/><path d="M64 30c8-8 24-6 30 4 6 10 0 22-10 24" stroke="#D64D35"/><path d="M84 26v10"/>'),
-    pet: wrap('<rect x="34" y="30" width="46" height="34" rx="8" fill="#E5C56C" fill-opacity=".5"/><circle cx="48" cy="44" r="4" fill="#25241F"/><circle cx="66" cy="44" r="4" fill="#25241F"/><path d="M50 56h14"/><path d="M57 30v-8"/><circle cx="57" cy="18" r="4" fill="#D64D35"/><path d="M34 40l-10-4M34 50l-10 4M80 40l10-4M80 50l10 4"/>')
+  var CUTOUTS = {
+    inventory: "assets/parts/chip.svg",
+    blog: "assets/parts/led.svg",
+    portfolio: "assets/parts/breadboard.svg",
+    alarm: "assets/parts/buzzer.svg",
+    speech: "assets/parts/ultrasonic.svg",
+    medicine: "assets/parts/capacitor.svg",
+    todo: "assets/parts/resistor.svg",
+    bench: "assets/parts/screwdriver.svg",
+    moon: "assets/parts/servo.svg",
+    sign: "assets/parts/wires.svg",
+    gym: "assets/parts/multimeter.svg",
+    python: "assets/parts/esp32.svg",
+    pseudocode: "assets/parts/arduino.svg",
+    morse: "assets/parts/resistor.svg",
+    os: "assets/parts/arduino.svg",
+    os2: "assets/parts/otto.svg",
+    dashboard: "assets/parts/multimeter.svg",
+    mountain: "assets/parts/soil_moisture.svg",
+    restaurant: "assets/parts/capacitor.svg",
+    wifi: "assets/parts/esp32.svg",
+    ohm: "assets/parts/resistor.svg",
+    chipmountain: "assets/parts/chip.svg",
+    orbit: "assets/parts/led.svg",
+    lock: "assets/parts/screwdriver.svg",
+    phishing: "assets/parts/wires.svg",
+    pet: "assets/parts/otto.svg"
   };
 
-  function visualFor(key) {
-    return VISUALS[key] || VISUALS.inventory;
+  function cutoutFor(project) {
+    return project.cutout || CUTOUTS[project.visual] || CUTOUTS.inventory;
   }
 
   /* ------------------------------------------------------------------ *
@@ -409,7 +409,13 @@
 
     var figure = el("figure", "scrap-visual");
     figure.setAttribute("aria-hidden", "true");
-    figure.innerHTML = visualFor(project.visual);
+    var cutout = el("img", "scrap-cutout");
+    cutout.src = cutoutFor(project);
+    cutout.alt = "";
+    cutout.loading = "lazy";
+    cutout.width = 180;
+    cutout.height = 120;
+    figure.appendChild(cutout);
     article.appendChild(figure);
 
     var head = el("div", "scrap-head");

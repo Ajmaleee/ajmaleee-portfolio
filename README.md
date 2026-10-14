@@ -10,17 +10,16 @@ JavaScript. No frameworks, no build step, no dependencies.
 /
 ├── index.html        # all the markup and content
 ├── style.css         # the whole visual system (mobile-first)
-├── script.js         # project data, nav, reveal animations, easter eggs
+├── script.js         # project data, nav, cat + easter eggs
 ├── favicon.svg       # custom handmade favicon
 ├── README.md         # you are here
 └── assets/
     ├── images/
     │   └── parts-doodle.svg   # workshop illustration
-    └── doodles/
-        ├── arrow.svg
-        ├── sparkle.svg
-        ├── squiggle.svg
-        └── star.svg
+    ├── doodles/               # arrows, stars, sparkles, squiggles
+    ├── parts/                 # taped-on cutouts: esp32, otto, sensors…
+    ├── scraps/                # scrap-paper cards (scrap_1.svg … scrap_30.svg)
+    └── photos/                # ← drop your own project photos here
 ```
 
 ## Run it locally
@@ -56,6 +55,17 @@ No install step. No `npm`. Nothing to compile.
 - **Currently exploring** scraps live in the `EXPLORING` array in `script.js`.
   They're editable placeholders — change them whenever.
 - **Sticker messages** live in `STICKER_MESSAGES` in `script.js`.
+- **Project cutouts**: each project shows a taped-on illustration from
+  `assets/parts/`, mapped in the `CUTOUTS` object in `script.js` (keyed by the
+  project's `visual` field). To use a real photo instead, drop the image in
+  `assets/photos/` and either point a `CUTOUTS` entry at it or add a per-project
+  `cutout: "assets/photos/my-photo.jpg"` field (see SignBridge for an example).
+- **Scrapbook decorations**: the hero "parts bin" strip and the floating
+  `.scrapfield` collages in `index.html` reference `assets/parts/*` and
+  `assets/scraps/*`. Swap in your own cutouts the same way — keep them small
+  (under ~200 KB each) so the page stays fast.
+- **The cat**: roams the page, flees the cursor after being clicked, and calms
+  down when fed fish from the bucket (bottom-right). Toggle it with "cat: on/off".
 - The `<noscript>` blocks in `index.html` keep the project list readable even
   when JavaScript is off.
 
